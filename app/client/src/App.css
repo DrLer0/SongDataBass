@@ -1,0 +1,55 @@
+.App {
+    text-align: center;
+    background-image: url('blue.png');
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    /* Background image doesn’t tile */
+    background-repeat: no-repeat;
+    /* Background image is fixed in the viewport so that it doesn’t move when
+the content’s height is greater than the image’s height */
+    background-attachment: fixed;
+    /* This is what makes the background image rescale based
+on the container’s size */
+    background-size: cover;
+    /* Set a background color that will be displayed
+while the background image is loading */
+    background-color: #464646;
+}
+
+.App-logo {
+    min-height: 10%;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.searchArea{
+    display: inline-block;
+}
