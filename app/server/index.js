@@ -10,12 +10,13 @@ import artistRoutes from './routes/artist.js';
 const app = express();
 
 
-app.use('/songs', songRoutes);
-app.use('/artist', artistRoutes);
-
 app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
+
 app.use(cors());
+
+app.use('/songs', songRoutes);
+app.use('/artist', artistRoutes);
 
 const PORT = process.env.PORT || 9042;
 

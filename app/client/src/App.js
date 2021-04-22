@@ -1,25 +1,27 @@
 import logo from './Cassandra_logo.svg';
 import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Songs from "./pages/Songs";
+import Artist from "./pages/Artist";
+import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
-      <br></br>
+    <Router>
+      <div >
       <img src={logo} className="App-logo" alt="logo" />
-      
-      <header className="App-header">
-        <h1>
-          Song DataBass
-        </h1>
-        <h3>
-          A React-Cassandra Database App
-        </h3>
-        <div className="searchArea">
-          <input type="text" id="songData" placeholder="Insert Song"></input>
-          <input type="submit" id="search"></input>
-        </div>
-        
-      </header>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Songs} />
+          <Route exact path="/songs" component={Songs} />
+          <Route exact path="/artist" component={Artist} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+    </Router>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 .App {
+    height: 100vh;
     text-align: center;
     background-image: url('blue.png');
     /* Background image is centered vertically and horizontally at all times */
@@ -48,6 +49,10 @@ while the background image is loading */
     to {
         transform: rotate(360deg);
     }
+}
+
+h3{
+    color: white;
 }
 
 .searchArea{
