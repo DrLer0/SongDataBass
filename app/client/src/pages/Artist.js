@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import youtube from "../utils/youtube"
+import YouTube from "react-youtube";
 
 class Songs extends Component {
   state = {
     songs: [],
-    artists: ""
+    artists: "",
+    videoID: "",
+    display: "none"
   };
 
   handleInputChange = event => {
@@ -28,8 +30,29 @@ class Songs extends Component {
         .catch(err => console.log(err));
     }
   };
+  getVideo = async (event) => {
+    // console.log(event.target.innerHTML)
+    const res = await youtube.get('/search', {
+      params: {
+        q: event.target.innerHTML
+      }
+    })
+    .then(res => {
+      this.setState({
+        videoID: res.data.items[0].id.videoId,
+        display: "block"});
+      console.log(this.state.display);
+    })
+    .catch(err => console.log(err));
+  };
 
   render() {
+    const opts = {
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
     return (
       <Container fluid>
         <Row>
@@ -48,21 +71,27 @@ class Songs extends Component {
                 Search Artist
               </FormBtn>
             </form>
+            <div className="video" style={{display: this.state.display, marginBottom: 10}}>
+            <YouTube
+            videoId={this.state.videoID}
+            containerClassName="embed embed-youtube"
+            opts={opts}
+            />
+            </div>
           </Col>
           <Col size="lg-12 sm-12">
             <Jumbotron>
-              <h1>Artists</h1>
+              <h1>Artist</h1>
             </Jumbotron>
             {this.state.songs.length ? (
               <List>
                 {this.state.songs.map(song => (
-                  <ListItem key={song._id}>
-                    <Link to={"/songs/" + song.song_id}>
-                      <strong>
+                  <ListItem key={song.song_id}>
+                    <div onClick={this.getVideo} >
+                      <strong name="text">
                         {song.title} by {song.artist_name}
                       </strong>
-                    </Link>
-                    {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                    </div>
                   </ListItem>
                 ))}
               </List>
