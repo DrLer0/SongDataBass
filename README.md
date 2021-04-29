@@ -13,6 +13,11 @@ Bootstrap|Axios|
 Cors|Express |
 react-youtube | HTML
 
+## Demo
+### Search by Song Title
+![SongDataBass Song Demo](https://media.giphy.com/media/t4gmIUDZbtnZaAP2Uz/giphy.gif)
+### Search by Artist
+![SongDataBass Artist Demo](https://media.giphy.com/media/P4JxWkmmjezR2H9330/giphy.gif)
 
 ## Setup
 ### Setup Client
