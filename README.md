@@ -1,4 +1,19 @@
 # SongDataBass
+A single-page React Web App for learning about Cassandra Database. Learned about creating tables, creating primary keys, exporting and importing tables, and interfacing the Cassandra database server with a web client using cassandra.mapping.Mapper from cassandra-drive.
+Uses a [subset](https://www.kaggle.com/anuragbanerjee/million-song-data-set-subset) of the [Million Song Data Set](http://millionsongdataset.com/) for our dataset and our local Cassandra Database.
+Can search for song titles or artist names, and can play songs from the searched songs using Youtube Data V3 API and rect-youtube npm.
+
+Technology| used:
+---|---|
+Javascript|CSS|
+React|npm|
+cassandra-driver|Youtube Data V3 API|
+Cassandra Database|React-router|
+Bootstrap|Axios|
+Cors|Express |
+react-youtube | HTML
+
+
 ## Setup
 ### Setup Client
 1. Download and open the project.
