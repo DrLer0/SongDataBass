@@ -37,7 +37,7 @@ $ npm install
 ```
 $ touch .env
 ```
-6. In the .env file, input your API key in <your key> (from the Google developer console) and save file.
+6. In the .env file, input your API key in \<your key\> (from the Google developer console) and save file.
 ```
 REACT_APP_YOUTUBE_API_KEY=<your key>
 ```
